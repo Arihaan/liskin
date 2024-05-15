@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+## What is LiskIn?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+LiskIn is a decentralized application (dApp) on the Lisk L2 Blockchain that allows for a decentralized digital identity for individuals and institutions.
 
-## Available Scripts
+**Verifiable LinkedIn on the Lisk Blockchain**
 
-In the project directory, you can run:
+LiskIn uses the power of blockchain technology to tokenize educational and professional credentials. This allows for institutions to issue qualifications and certifications such as University degrees to users’ wallets hence making the credentials of the individual verifiable forever.
 
-### `npm start`
+## Why does it exist?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Some facts:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Emerging Markets suffer from a lack of transparency and credential integrity which slows growth and deters foreign investment.
 
-### `npm test`
+- 140 job applications are submitted through LinkedIn every second.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Average cost of a background check is $40.
 
-### `npm run build`
+LiskIn brings credential integrity to Emerging Markets at a low cost by severly lowering the cost of background checks and the Lisk L2 can handle a high number of transactions per second (as compared to the Ethereum chain), allowing it to compete even with the likes of LinkedIn.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How we built it
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+LiskIn is built with a React front-end and a Solidity Smart Contract on the Lisk Blockchain called LiskIn.sol.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Challenges we ran into
 
-### `npm run eject`
+Lisk being a new L2 blockchain had limited support and documentation so it was a nice learning challenge to develop on it. Overall, the documentation was quite helpful along with the faucet, bridge and low gas fees made it a pleasant experience.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## What's next for LiskIn
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+LiskIn can become much bigger. It has the possibility to turn into a DeSoc platform with plenty of incentives for both users who want verifiable credentials and institutions who want cheap verifiable background checks.

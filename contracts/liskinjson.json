@@ -1,0 +1,35 @@
+{
+    "language": "Solidity",
+    "sources": {
+        "contracts/liskin.sol": {
+            "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ncontract LiskIn {\n    // Structs\n    struct Credential {\n        string name;\n        uint256 year;\n        string cType; // \"Education\", \"Professional\", \"Certification\"\n    }\n    \n    struct User {\n        string name;\n        mapping(string => Credential[]) credentials;\n    }\n    \n    struct Institution {\n        string name;\n    }\n    \n    // Mappings\n    mapping(address => User) public allUsers;\n    mapping(address => Institution) public allInstitutions;\n    \n    string[] private credentialTypes = [\"Education\", \"Professional\", \"Certification\"];\n    \n    // Methods\n    function register(string memory _name, string memory _type) public returns (string memory) {\n        if (keccak256(bytes(_type)) == keccak256(bytes(\"user\"))) {\n            if (addressExists(msg.sender, true)) {\n                return \"Already registered\";\n            } else {\n                User storage newUser = allUsers[msg.sender];\n                newUser.name = _name;\n                for (uint256 i = 0; i < credentialTypes.length; i++) {\n                    newUser.credentials[credentialTypes[i]]; // Initialize the mapping\n                }\n            }\n        } else if (keccak256(bytes(_type)) == keccak256(bytes(\"institution\"))) {\n            if (addressExists(msg.sender, false)) {\n                return \"Already registered\";\n            } else {\n                allInstitutions[msg.sender] = Institution(_name);\n            }\n        }\n        return \"Registration successful\";\n    }\n    \n    function addCredential(address _userWalletAddress, string memory _name, uint256 _year, string memory _type) public returns (string memory) {\n        if (!addressExists(msg.sender, false)) {\n            return \"Unregistered Institution\";\n        }\n        if (!addressExists(_userWalletAddress, true)) {\n            return \"Unregistered User\";\n        }\n        \n        Credential memory newCredential = Credential(_name, _year, _type);\n        \n        // Create a reference to the pushed User struct\n        User storage user = allUsers[_userWalletAddress];\n        \n        // Modify the reference directly\n        user.credentials[_type].push(newCredential);\n        \n        return \"Credential Added\";\n    }\n    \n    function getCredentials(address _userWalletAddress, string memory _type) public view returns (string[] memory, uint256[] memory) {\n        require(addressExists(_userWalletAddress, true), \"Unregistered User\");\n        \n        Credential[] memory credentials = allUsers[_userWalletAddress].credentials[_type];\n        string[] memory names = new string[](credentials.length);\n        uint256[] memory yearss = new uint256[](credentials.length);\n        for (uint256 i = 0; i < credentials.length; i++) {\n            names[i] = credentials[i].name;\n            yearss[i] = credentials[i].year;\n        }\n        return (names, yearss);\n    }\n    \n    // Internal function to check if address exists and if it belongs to a user or institution\n    function addressExists(address _addr, bool _isUser) internal view returns (bool) {\n        if (_isUser) {\n            return (bytes(allUsers[_addr].name).length > 0);\n        } else {\n            return (bytes(allInstitutions[_addr].name).length > 0);\n        }\n    }\n}\n"
+        }
+    },
+    "settings": {
+        "optimizer": {
+            "enabled": false,
+            "runs": 200
+        },
+        "outputSelection": {
+            "*": {
+                "": [
+                    "ast"
+                ],
+                "*": [
+                    "abi",
+                    "metadata",
+                    "devdoc",
+                    "userdoc",
+                    "storageLayout",
+                    "evm.legacyAssembly",
+                    "evm.bytecode",
+                    "evm.deployedBytecode",
+                    "evm.methodIdentifiers",
+                    "evm.gasEstimates",
+                    "evm.assembly"
+                ]
+            }
+        },
+        "remappings": []
+    }
+}
